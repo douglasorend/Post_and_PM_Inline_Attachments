@@ -218,7 +218,7 @@ function ILA_Setup($msg_id, &$message)
 			$message = str_replace($temp_rep[$id], $code, $message);
 		}
 	}
-	
+
 	// Process the inline attachments in the quotes, then pass the result back:
 	ILA_Fix_Param_Order($message);
 	ILA_Process_Quotes($message);
@@ -304,14 +304,14 @@ function ILA_Post_Attachments($msg_id)
 		require_once($sourcedir . '/Subs-Attachments.php');
 		$context['ila']['attachments'][$msg_id] = loadAttachmentContext($msg_id, true, $attachments);
 	}
-	else		
+	else
 	{
 		// Is Tapatalkr running?  Include the correct copy of "Display.php"....
 		if (!defined('IN_MOBIQUO'))
 			require_once($sourcedir . '/Display.php');
 		else
 			require_once($boarddir . '/mobiquo/include/Display.php');
-			
+
 		// Load the attachment context even if there are no attachments:
 		$context['ila']['attachments'][$msg_id] = loadAttachmentContext($msg_id, true);
 	}
@@ -761,7 +761,7 @@ function ILA_Build_HTML(&$tag, &$id)
 	// If we are previewing the post, return "attachment not uploaded yet" message:
 	if (!isset($context['ila']['attachments'][$msg]) && (isset($_REQUEST['action']) ? $_REQUEST['action'] : '') == 'post2')
 		return $txt['ila_not_uploaded'];
-	
+
 	// Does the specified attachment exist in the message?  If not, return attachment invalid message:
 	if ($msg == 'new')
 		return $txt['ila_attachment'];
@@ -773,7 +773,7 @@ function ILA_Build_HTML(&$tag, &$id)
 		return $txt['ila_unapproved'];
 
 	// IMPORTANT: Set the download counter variable correctly!
-	$download_count = ($tag['tag'] == 'attachurl' ? 4 : ($tag['tag'] == 'attachmini' ? 0 : 
+	$download_count = ($tag['tag'] == 'attachurl' ? 4 : ($tag['tag'] == 'attachmini' ? 0 :
 		(isset($modSettings['ila_download_count']) ? $modSettings['ila_download_count'] : 0)));
 
 	// Start assembling the transparency CSS style:
@@ -828,10 +828,16 @@ function ILA_Build_HTML(&$tag, &$id)
 		{
 			$width = (isset($context['ila_params']['width']) ? $context['ila_params']['width'] : 500);
 			$height = (isset($context['ila_params']['height']) ? $context['ila_params']['height'] : 600);
-			$html = '<object data="' . $url . '" type="application/pdf" width="' . $width . '" height="' . $height . '"><iframe src="' . $url . '" style="border: none;" width="' . $width . '" height="' . $height . '">' . $txt['ila_pdf1'] . ' <a href="' . $url . '">' . $txt['ila_pdf2'] . '</a></iframe></object>';
+			$html = 
+				'<object data="' . $url . '" type="application/pdf" width="' . $width . '" height="' . $height . '">
+					<iframe src="' . $url . '" style="border: none;" width="' . $width . '" height="' . $height . '">
+						' . $txt['ila_pdf1'] . 
+						' <a href="' . $url . '">' . $txt['ila_pdf2'] . '</a>' .
+					'</iframe>' .
+				'</object>';
 		}
 		// If we are allowed to embed videos, then do so for supported formats:
-		elseif (!empty($modSettings['ila_embed_video_files']))
+		elseif (!empty($modSettings['ila_embed_video_files']) && in_array($ext, array('avi', 'wmv', 'mp4', 'ogv', 'webm')))
 		{
 			$width = (!empty($context['ila_params']['width']) ? $context['ila_params']['width'] :
 				(!empty($modSettings['ila_video_default_width']) ? $modSettings['ila_video_default_width'] : 640));
@@ -841,14 +847,16 @@ function ILA_Build_HTML(&$tag, &$id)
 			$download_count = isset($modSettings['ila_video_show_download_link']) ? $modSettings['ila_video_show_download_link'] : 0;
 
 			if ($ext == 'avi')
-				$html = '<object classid="clsid:67DABFBF-D0AB-41fa-9C46-CC0F21721616"' . $dim . ' codebase="http://go.divx.com/plugin/DivXBrowserPlugin.cab">' .
+				$html = 
+					'<object classid="clsid:67DABFBF-D0AB-41fa-9C46-CC0F21721616"' . $dim . ' codebase="http://go.divx.com/plugin/DivXBrowserPlugin.cab">' .
 						'<param name="mode" value="full" />' .
 						'<param name="autoPlay" value="false" />' .
 						'<param name="src" value="' . $url . '" />' .
-						'<embed type="video/divx" src="' . $url . '" mode="full"' . $dim . ' autoPlay="false" pluginspage="http://go.divx.com/plugin/download/"></embed>' .
+						'<embed type="video/divx" src="' . $url . '" mode="full"' . $dim . ' autoPlay="false" pluginspage="http://go.divx.com/plugin/download/" />' .
 					'</object>';
 			elseif ($ext == 'wmv')
-				$html = '<object classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95"' . $dim . ' standby="Loading Windows Media Player components..." type="application/x-oleobject" id="MediaPlayer">' .
+				$html = 
+					'<object classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95"' . $dim . ' standby="Loading Windows Media Player components..." type="application/x-oleobject" id="MediaPlayer">' .
 						'<param name="FileName" value="' . $url . '">' .
 						'<param name="autostart" value="false">' .
 						'<param name="ShowControls" value="true">' .
@@ -871,18 +879,20 @@ function ILA_Build_HTML(&$tag, &$id)
 				// Build the video HTML to show the user:
 				$img = (!empty($file['png']) ? $file['png']['href'] : (!empty($file['jpg']) ? $file['jpg']['href'] : ''));
 				$html5 = !empty($modSettings['ila_video_html5']);
-				$html = ($html5 ? '<video controls="controls" width="'. $width . '" height="' . $height . '">' .
-					(!empty($file['mp4']['href']) ? '<source src="' . $file['mp4']['href'] . '" type="video/mp4" />' : '') .
-					(!empty($file['ogv']['href']) ? '<source src="' . $file['ogv']['href'] . '" type="video/ogv" />' : '') .
-					(!empty($file['webm']['href']) ? '<source src="' . $file['webm']['href'] . '" type="video/webm" />' : '') : '') .
+				$html = ($html5 ? 
+					'<video controls="controls" width="'. $width . '" height="' . $height . '">' .
+						(!empty($file['mp4']['href']) ? '<source src="' . $file['mp4']['href'] . '" type="video/mp4" />' : '') .
+						(!empty($file['ogv']['href']) ? '<source src="' . $file['ogv']['href'] . '" type="video/ogv" />' : '') .
+						(!empty($file['webm']['href']) ? '<source src="' . $file['webm']['href'] . '" type="video/webm" />' : '') : '') .
 					($html5 || !empty($file['mp4']['href']) || !empty($file['webm']['href']) ?
-					'<object type="application/x-shockwave-flash" data="http://player.longtailvideo.com/player.swf" width="' . $width . '" height="' . $height .'">' .
-						'<param name="movie" value="http://player.longtailvideo.com/player.swf" />' .
-						'<param name="allowFullScreen" value="true" />' .
-						'<param name="wmode" value="transparent" />' .
-						'<param name="flashVars" value="controlbar=over&amp;' . (!empty($img) ? 'image=' . urlencode($img) . '&amp;' : '') . 'file=' . (!empty($file['mp4']['href']) ? urlencode($file['mp4']['href']) : urlencode($file['webm']['href'])) . '" />' .
-						(!empty($img) ? '<img src="' . $img . '" width="' . $width . '" height="' . $height .'" title="' . $txt['ila_no_video'] . '" />' : $txt['ila_no_video']) .
-					'</object>' : '') . ($html5 ? '</video>' : '');
+						'<object type="application/x-shockwave-flash" data="http://player.longtailvideo.com/player.swf" width="' . $width . '" height="' . $height .'">' .
+							'<param name="movie" value="http://player.longtailvideo.com/player.swf" />' .
+							'<param name="allowFullScreen" value="true" />' .
+							'<param name="wmode" value="transparent" />' .
+							'<param name="flashVars" value="controlbar=over&amp;' . (!empty($img) ? 'image=' . urlencode($img) . '&amp;' : '') . 'file=' . (!empty($file['mp4']['href']) ? urlencode($file['mp4']['href']) : urlencode($file['webm']['href'])) . '" />' .
+							(!empty($img) ? '<img src="' . $img . '" width="' . $width . '" height="' . $height .'" title="' . $txt['ila_no_video'] . '" />' : $txt['ila_no_video']) .
+						'</object>' : '') . 
+					($html5 ? '</video>' : '');
 			}
 		}
 	}
@@ -894,12 +904,23 @@ function ILA_Build_HTML(&$tag, &$id)
 		// Prepare certain elements so that the HTML building code looks at least a little nicer:
 		$downloaded = (!isset($txt['attach_times']) ? sprintf($txt['attach_downloaded'], $attachment['downloads']) : $txt['attach_downloaded'] . ' ' . $attachment['downloads'] . ' ' . $txt['attach_times']);
 		$viewed = (!isset($txt['attach_times']) ? sprintf($txt['attach_viewed'], $attachment['downloads']) : $txt['attach_viewed'] . ' ' . $attachment['downloads'] . ' ' . $txt['attach_times']);
-		
+
 		// Let's build the HTML code for the download count now....
-		$html = (!empty($html) ? $html . '<br/>' : '') . 
+		$html = (!empty($html) ? $html . '<br/>' : '') .
 			'<span class="smalltext">' .
-				'<a href="' . $attachment['href'] . '"><img src="' . $settings['images_url'] . '/icons/clip.' . (!isset($txt['attach_times']) ? 'png' : 'gif') . '" align="middle" alt="*" border="0" /> ' . $attachment['name'] . '</a>' . 
-				($download_count ? (($download_count >= 5 ? '<br/>' : ' ') . ($download_count >= 2 ? '(' . $attachment['size'] : '') . ($download_count >= 3 && $attachment['is_image'] && !empty($dimensions['width']) ? ', ' . $dimensions['width'] . 'x' . $dimensions['height'] : '') . ($download_count >= 4 ? (($download_count == 6 ? ')<br/>(' : ' - ') . ($attachment['is_image'] ? $viewed : ' - ' . $downloaded)) : '') . ($download_count >= 2 ? ')' : '')) : '') .
+				'<a href="' . $attachment['href'] . '">' .
+					'<img src="' . $settings['images_url'] . '/icons/clip.' . (!isset($txt['attach_times']) ? 'png' : 'gif') . '" align="middle" alt="*" border="0" /> ' . $attachment['name'] .
+				'</a>' .
+				($download_count ? (
+					($download_count >= 5 ? '<br/>' : ' ') .
+					($download_count >= 2 ? '(' . $attachment['size'] : '') .
+					($download_count >= 3 && $attachment['is_image'] && !empty($dimensions['width']) ? ', ' . $dimensions['width'] . 'x' . $dimensions['height'] : '') .
+					($download_count >= 4 ? (
+						($download_count == 6 ? ')<br/>(' : ' - ') .
+						($attachment['is_image'] ? $viewed : ' - ' . $downloaded)
+					) : '') .
+					($download_count >= 2 ? ')' : '')
+				) : '') .
 			'</span>';
 	}
 
@@ -946,7 +967,7 @@ function ILA_Build_HTML(&$tag, &$id)
 		$context['ila']['dont_show'][$msg][$attachment['id']] = true;
 	if (!empty($modSettings['ila_duplicate']) && $context['ila']['pm_attach'])
 		$context['ila']['dont_show'][$attachment['id']] = true;
-		
+
 	// Return to our lord and saviour, our caller! :p
 	return $html;
 }
@@ -961,7 +982,7 @@ function ILA_subfunction($id, $full, $thumb, $name, $style = '', $has_thumb = fa
 	// Yup, you read right: Increase attachment ID by one million! 99.99+% chance
 	// of no conflict while showing attachments as thumbnails below post!
 	$id += 1000000;
-	
+
 	// Are we asked not to scale the image in ANY WAY?
 	$class = !empty($modSettings['ila_enable_responsive']) && empty($context['ila_params']['scale']) ? 'ila_attach' : '';
 
@@ -993,7 +1014,7 @@ function ILA_subfunction($id, $full, $thumb, $name, $style = '', $has_thumb = fa
 	if ($has_thumb)
 		return '<a href="' . $full . '" id="link_' . $id . '" onclick="return expandThumb(' . $id . ');"><img src="' . $thumb . '" alt="" id="thumb_' . $id . '"' . (!empty($class) ? ' class="' . $class . '"' : '') . $style . ' /></a>';
 	else
-		return '<a href="' . $full . '"><img src="' . $full . ';image" ' . ' alt="' . $name . '"' . ' class="bbc_img resized' . (!empty($class) ? ' ' . $class : '') . '"' . $style .' />';
+		return '<a href="' . $full . '"><img src="' . $full . ';image" ' . ' alt="' . $name . '"' . ' class="bbc_img resized' . (!empty($class) ? ' ' . $class : '') . '"' . $style .' /></a>';
 }
 
 // Attachment => Show full expanded picture

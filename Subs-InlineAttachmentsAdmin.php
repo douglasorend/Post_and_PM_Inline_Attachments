@@ -213,9 +213,12 @@ function ILA_Admin_Adjust($ascending = true)
 		// Get the number of post/PMs that have an ILA tag within it:
 		$request = $smcFunc['db_query']('', '
 			SELECT COUNT(*) AS count
-			FROM {db_prefix}' . $table . '
-			WHERE body LIKE "%[attach%"',
-			array()
+			FROM {db_prefix}{string:table}
+			WHERE body LIKE {string:body}',
+			array(
+				'table' => $table,
+				'body' => '%[attach%',
+			)
 		);
 		$row = $smcFunc['db_fetch_assoc']($request);
 		$smcFunc['db_free_result']($request);
@@ -224,13 +227,16 @@ function ILA_Admin_Adjust($ascending = true)
 		// Start processing messages with the ILA tag in it:
 		$request = $smcFunc['db_query']('', '
 			SELECT ' . $id . ' AS id, body
-			FROM {db_prefix}' . $table . '
-			WHERE body LIKE "%[attach%"
-			ORDER BY ' . $id . '
+			FROM {db_prefix}{string:table}
+			WHERE body LIKE {string:body}
+			ORDER BY {string:sort_by}
 			LIMIT {int:start}, {int:count}',
 			array(
+				'table' => $table,
 				'start' => (int) $count,
 				'count' => (int) $max - $count,
+				'body' => '%[attach%',
+				'sort_by' => $id,
 			)
 		);
 		$queries = array();
