@@ -1088,12 +1088,16 @@ function ILA_mime_type($filename, $ext, $original = false)
 		return $ext == 'ogv' ? 'video/ogg' : $mime;
 	elseif ($mime == 'audio/wma')
 		return $ext == 'wmv' ? 'video/wmv' : $mime;
-	elseif (!empty($mime))
-		return $mime;
-	elseif (!function_exists('mime_content_type'))
-		return mime_content_type($filename);
 	elseif ($ext == 'svg')
 		return 'image/svg+xml';
+	elseif (!empty($mime))
+		return $mime;
+	elseif (function_exists('finfo_file') && function_exists('finfo_open') && defined('FILEINFO_MIME_TYPE'))
+		return finfo_file(finfo_open(FILEINFO_MIME_TYPE), $filename);
+	elseif (function_exists('mime_content_type'))
+		return mime_content_type($filename);
+	else
+		return false;
 }
 
 ?>
