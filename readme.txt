@@ -1,5 +1,5 @@
 [hr]
-[center][color=red][size=16pt][b]POST & PM INLINE ATTACHMENTS v6.10[/b][/size][/color]
+[center][color=red][size=16pt][b]POST & PM INLINE ATTACHMENTS v6.11[/b][/size][/color]
 [url=http://www.simplemachines.org/community/index.php?action=profile;u=253913][b]By Dougiefresh[/b][/url] -> [url=http://custom.simplemachines.org/mods/index.php?mod=3770]Link to Mod[/url]
 [/center]
 [hr]
@@ -95,7 +95,8 @@ These mods should be installed before this mod (not required):
 o [url=http://custom.simplemachines.org/mods/index.php?mod=1450]Highslide Image Viewer[/url]
 o [url=https://github.com/Spuds/SMF-HS4SMF]HS4SMF v0.8.1[/url]
 o [url=http://custom.simplemachines.org/mods/index.php?mod=1974]PM Attachments[/url]
-o [url=http://custom.simplemachines.org/mods/index.php?mod=2758]Custom View of Attachments[/url]
+o [url=https://dragomano.ru/mods/custom-view-of-attachments]Custom View of Attachments[/url]
+o [url=https://www.simplemachines.org/community/index.php?topic=418177.msg3499865#msg3499865]New Hooks[/url] (Required for [url=https://dragomano.ru/mods/custom-view-of-attachments]Custom View of Attachments[/url])
 
 [color=blue][b][size=12pt][u]Changelog[/u][/size][/b][/color]
 The changelog has been removed and can be seen at [url=http://www.xptsp.com/board/index.php?topic=12.msg137#msg137]XPtsp.com[/url].

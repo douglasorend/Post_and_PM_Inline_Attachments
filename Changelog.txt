@@ -1,3 +1,7 @@
+v6.11 - April 27th, 2018
+o As per [url=https://www.simplemachines.org/community/index.php?topic=525705.msg3970133#msg3970133]pepa's[/url] post fixed issue that was causing change of [i]Should first attachment should be numbered "1"?[/i] option to throw error for SQL query.
+o For SMF 2.0: Re-added code to display a label if an attachment in a post which is being edited is awaiting approval.
+
 v6.10 - April 3rd, 2018
 o [url=https://www.simplemachines.org/community/index.php?topic=525705.msg3967320#msg3967320]Per GL700Wing's post[/url], modified [url=https://dragomano.ru/mods/custom-view-of-attachments]Custom Views of Attachments[/url] mod to match attachment viewing modifications.
 

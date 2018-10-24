@@ -213,7 +213,7 @@ function ILA_Admin_Adjust($ascending = true)
 		// Get the number of post/PMs that have an ILA tag within it:
 		$request = $smcFunc['db_query']('', '
 			SELECT COUNT(*) AS count
-			FROM {db_prefix}{string:table}
+			FROM {db_prefix}{raw:table}
 			WHERE body LIKE {string:body}',
 			array(
 				'table' => $table,
@@ -227,7 +227,7 @@ function ILA_Admin_Adjust($ascending = true)
 		// Start processing messages with the ILA tag in it:
 		$request = $smcFunc['db_query']('', '
 			SELECT ' . $id . ' AS id, body
-			FROM {db_prefix}{string:table}
+			FROM {db_prefix}{raw:table}
 			WHERE body LIKE {string:body}
 			ORDER BY {string:sort_by}
 			LIMIT {int:start}, {int:count}',
