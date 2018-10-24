@@ -1,3 +1,7 @@
+v6.13 - June 9th, 2018
+o Added message for PM preview to indicate attachment has not been uploaded yet.
+o Updated installation code for SMF 2.0.x to enable this mod to be installed and/or uninstalled before and/or after the [url=https://custom.simplemachines.org/mods/index.php?mod=4087]Automatic Attachment Rotation (and Resize)[/url] mod without generating errors in Display.php.
+
 v6.12 - April 28th, 2018
 o Per [url=https://www.simplemachines.org/community/index.php?topic=525705.msg3970389#msg3970389]@rjen[/url] - added Dutch language files.
 o Added UTF8 language files for English.
@@ -77,23 +81,23 @@ o Fixed the HTML building code so various parameters work properly.
 o Fixed undefined array element error in [b]Subs-InlineAttachments.php[/b].
 
 v5.9 - August 31st, 2017
-o Completed SMF 2.1 Beta 3 template edits.  Javascript edits still needed.
+o Completed SMF 2.1 Beta 3 template edits. Javascript edits still needed.
 o Replaced IFNULL with COALESCE in database queries for better Postgres support.
 
 v5.8 - July 8th, 2017
-o Updated source code for SMF 2.1 Beta 1 & 2.  Templates are still unedited.
-o Remvoed support for SMF 2.1 Beta 1 & 2.
+o Updated source code for SMF 2.1 Beta 1 & 2. Templates are still unedited.
+o Removed support for SMF 2.1 Beta 1 & 2.
 o Attempt fix for issue where incomplete information was pulled for attachments.
 
 v5.7 - July 5th, 2017
-o Fixed 2 undefined index errors found by [url=http://www.simplemachines.org/community/index.php?action=profile;u=112942]GL700Wing[/url].  Thanks, GL700Wing!
-o Resolved undefined array element errors coming from [url=http://custom.simplemachines.org/mods/index.php?mod=4087]Automatic Attachment Rotation[/url] mod.  Thanks, [url=http://www.simplemachines.org/community/index.php?action=profile;u=112942]GL700Wing[/url]!!
+o Fixed 2 undefined index errors found by [url=http://www.simplemachines.org/community/index.php?action=profile;u=112942]GL700Wing[/url]. Thanks, GL700Wing!
+o Resolved undefined array element errors coming from [url=http://custom.simplemachines.org/mods/index.php?mod=4087]Automatic Attachment Rotation[/url] mod. Thanks, [url=http://www.simplemachines.org/community/index.php?action=profile;u=112942]GL700Wing[/url]!!
 
 v5.6 - March 15th, 2017
 o Fixed regex expressions so that [b]code[/b] & [b]quote[/b] tags are processed correctly.
 
 v5.5 - March 11th, 2017
-o Fixed "(more attachments)" issue.  Thanks, [url=http://www.simplemachines.org/community/index.php?action=profile;u=52327]LG965[/url]!
+o Fixed "(more attachments)" issue. Thanks, [url=http://www.simplemachines.org/community/index.php?action=profile;u=52327]LG965[/url]!
 
 v5.4 - March 10th, 2017
 o Fixed readme compatibility note about HS4SMF mod being installed first.
@@ -108,7 +112,7 @@ o Removed debug statement accidentally left in the mod.
 
 v5.3 - March 4th, 2017
 o Fixed code that returns the image dimensions to the HTML building code.
-o Removed ILA popup window with ILA parameters.  Will be replaced by new stuff....
+o Removed ILA popup window with ILA parameters. Will be replaced by new stuff....
 
 v5.2 - February 24th, 2017
 o Fixed issue where popup option wasn't linked to anything....
@@ -223,11 +227,11 @@ o Fixed issue with ILA download info not showing the original image size correct
 o Seperated admin functions from general bbcode functions and placed in new file.
 o Reorganized ILA options so that their organization makes more sense (at least to me).
 o Revised the video playing code so that hopefully it works better now.
-o Added default video width and height options.  Defaults to 640x400.
+o Added default video width and height options. Defaults to 640x400.
 o Added support for SVG files as inline attachments and option to enable it.
-o Added support for TXT files as inline attachments and option to enable it.  Inserts as part of post.
-o Added support for PDF files as inline attachments and option to enable it.  Defaults to 500x600.
-o Added option to control unapproved image opacity percentage.  0 returns "unapproved" message.
+o Added support for TXT files as inline attachments and option to enable it. Inserts as part of post.
+o Added support for PDF files as inline attachments and option to enable it. Defaults to 500x600.
+o Added option to control unapproved image opacity percentage. 0 returns "unapproved" message.
 o Made "Highslide" option visible, but disabled when no supported Highslide mods are installed.
 o Made "EXIF" option visible, but disabled when EXIF mod isn't installed.
 o Modified install code so that only mod settings that aren't already set are set.
@@ -272,7 +276,7 @@ o Fixed some invalid regular expressions to make sure they get the message ID.
 o Fixed error-creating operation within PersonalMessage.php.
 
 v3.11 - July 10th, 2015
-o Added code to internally transform closed ILA tags ([attach]) into proper ILA tags.  Thanks, dcmouser!
+o Added code to internally transform closed ILA tags ([attach]) into proper ILA tags. Thanks, dcmouser!
 o Moved settings from Modification Settings to the Attachments and Avatars section.
 o Fixed an undefined variable error in PersonalMessage.php.
 o Made some performance optimization changes.
@@ -388,14 +392,14 @@ o Fixed a bug in the Post.template.php and PersonalMessage.template.php template
 o Fixed a bug that added "Insert Attachment 1" where "Insert Attachment 2" should have been.
 
 v2.5 - January 19th, 2015
-o License change to Simplified BSD.  No functionality change.
+o License change to Simplified BSD. No functionality change.
 
 v2.4 - January 11th, 2015
 o Fixed undefined index error within Subs-InlineAttachments.php...
 
 v2.3 - December 28th, 2014
 o Performance enhancement due to storing permission check after first check.
-o Fixed spacing issues between picture and download counter/link.  Thanks, RSI!
+o Fixed spacing issues between picture and download counter/link. Thanks, RSI!
 
 v2.2 - December 22th, 2014
 o New BBCode added: attachurl

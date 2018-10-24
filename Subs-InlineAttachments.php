@@ -747,8 +747,9 @@ function ILA_Build_HTML(&$tag, &$id)
 	else
 		$msg = (isset($context['ila']['msg']) ? $context['ila']['msg'] : -1);
 
-	// If we are previewing the post, return "attachment not uploaded yet" message:
-	if (((isset($_REQUEST['action']) ? $_REQUEST['action'] : '') == 'post2') && (!isset($context['ila']['attachments'][$msg][$id])))
+	// If we are previewing the post or PM, return "attachment not uploaded yet" message:
+	if (((isset($_REQUEST['action']) ? $_REQUEST['action'] : '') == 'post2') && (!isset($context['ila']['attachments'][$msg][$id]))
+	|| ((isset($_REQUEST['action']) ? $_REQUEST['action'] : '') == 'pm' && (isset($_REQUEST['sa']) ? $_REQUEST['sa'] : '') == 'send2'))
 		return $txt['ila_not_uploaded'];
 
 	// Are attachments enabled and can we see them?  If not, return no permission message:

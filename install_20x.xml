@@ -3,7 +3,7 @@
 <modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
 <name>Post and PM Inline Attachments</name>
 <id>Dougiefresh:ILA</id>
-<version>6.10</version>
+<version>6.13</version>
 
 <!---------------------------------------------------------------------------->
 <!-- Source file edits														-->
@@ -34,16 +34,21 @@
 	]]></add>
 	</operation>
 	<operation>
-		<search position="after"><![CDATA[$attachmentData[$i] = array(]]></search>
-		<add><![CDATA[$msg_topic = isset($attachment['id_topic']) ? $attachment['id_topic'] : $topic;
-			]]></add>
+		<search position="before"><![CDATA[foreach ($attachments[$id_msg] as $i => $attachment)
+		{]]></search>
+		<add><![CDATA[
+			$msg_topic = isset($attachment['id_topic']) ? $attachment['id_topic'] : $topic;]]></add>
 	</operation>
 	<operation>
-		<search position="replace"><![CDATA['href' => $scripturl . '?action=dlattach;topic=' . $topic . '.0;attach=' . $attachment['id_attach'],
-				'link' => '<a href="' . $scripturl . '?action=dlattach;topic=' . $topic . '.0;attach=' . $attachment['id_attach'] . '">' . htmlspecialchars($attachment['filename']) . '</a>',
+		<search position="replace"><![CDATA[;topic=' . $topic . '.0;attach=' . $attachment['id_attach'],
+]]></search>
+		<add><![CDATA[;topic=' . $msg_topic . '.0;attach=' . $attachment['id_attach'],
+]]></add>
+	</operation>
+	<operation>
+		<search position="replace"><![CDATA[;topic=' . $topic . '.0;attach=' . $attachment['id_attach'] . '">' . htmlspecialchars($attachment['filename']) . '</a>',
 				'is_image' => !empty($attachment['width']) && !empty($attachment['height']) && !empty($modSettings['attachmentShowImages']),]]></search>
-		<add><![CDATA['href' => $scripturl . '?action=dlattach;topic=' . $msg_topic . '.0;attach=' . $attachment['id_attach'],
-				'link' => '<a href="' . $scripturl . '?action=dlattach;topic=' . $msg_topic . '.0;attach=' . $attachment['id_attach'] . '">' . htmlspecialchars($attachment['filename']) . '</a>',
+		<add><![CDATA[;topic=' . $msg_topic . '.0;attach=' . $attachment['id_attach'] . '">' . htmlspecialchars($attachment['filename']) . '</a>',
 				'is_image' => !empty($attachment['width']) && !empty($attachment['height']) && (!empty($modSettings['attachmentShowImages']) || $override_show),]]></add>
 	</operation>
 
@@ -513,14 +518,14 @@
 	</operation>
 	<operation>
 		<search position="replace"><![CDATA[foreach ($context['current_attachments'] as $attachment)
-			echo '
-						<dd class="smalltext">
-							<label for="attachment_', $attachment['id'], '"><input type="checkbox" id="attachment_', $attachment['id'], '" name="attach_del[]" value="', $attachment['id'], '"', empty($attachment['unchecked']) ? ' checked="checked"' : '', ' class="input_check" /> ', $attachment['name'], (empty($attachment['approved']) ? ' (' . $txt['awaiting_approval'] . ')' : ''), '</label>
 ]]></search>
 		<add><![CDATA[foreach ($context['current_attachments'] as $attid => $attachment)
-			echo '
-						<dd class="smalltext">
-							<label for="attachment_', $attachment['id'], '"><input type="checkbox" id="attachment_', $attachment['id'], '" name="attach_del[]" value="', $attachment['id'], '"', empty($attachment['unchecked']) ? ' checked="checked"' : '', ' class="input_check" /> ', $attachment['name'], (empty($attachment['approved']) ? ' (' . $txt['awaiting_approval'] . ')' : ''), ' <a onclick="insertAttachment(', ($attid + !empty($modSettings['ila_one_based_numbering'])), '); return false;">(', sprintf($txt['ila_insert'], ($attid + !empty($modSettings['ila_one_based_numbering']))), ')</a></label>
+]]></add>
+	</operation>
+	<operation>
+		<search position="replace"><![CDATA[(empty($attachment['approved']) ? ' (' . $txt['awaiting_approval'] . ')' : ''), '</label>
+]]></search>
+		<add><![CDATA[(empty($attachment['approved']) ? ' (' . $txt['awaiting_approval'] . ')' : ''), ' <a onclick="insertAttachment(', ($attid + !empty($modSettings['ila_one_based_numbering'])), '); return false;">(', sprintf($txt['ila_insert'], ($attid + !empty($modSettings['ila_one_based_numbering']))), ')</a></label>
 ]]></add>
 	</operation>
 	<operation>

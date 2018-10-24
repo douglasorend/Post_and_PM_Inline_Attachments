@@ -1,23 +1,23 @@
 [hr]
-[center][color=red][size=16pt][b]POST & PM INLINE ATTACHMENTS v6.12[/b][/size][/color]
+[center][color=red][size=16pt][b]POST & PM INLINE ATTACHMENTS v6.13[/b][/size][/color]
 [url=http://www.simplemachines.org/community/index.php?action=profile;u=253913][b]By Dougiefresh[/b][/url] -> [url=http://custom.simplemachines.org/mods/index.php?mod=3770]Link to Mod[/url]
 [/center]
 [hr]
 
 [color=blue][b][size=12pt][u]Introduction[/u][/size][/b][/color]
-This mod adds the ability to position your attachments in either your forum post or your personal message post using [attachment=n][/attachment] bbcode (where [b]n[/b] is the number of the attachment in the post, eg first = 0, second = 1).
+This mod adds the ability to position your attachments in either your forum post or your personal message post using [attachment=n][/attachment] BBCode (where [b]n[/b] is the number of the attachment in the post, eg first = 0, second = 1).
 
-[b]NOTICE:[/b]  In order to support inline attachments in personal messages (PMs), you are [b]REQUIRED[/b] to have the [url=https://custom.simplemachines.org/mods/index.php?mod=1974]PM Attachments[/url] mod [b]VERSION 2.6 OR BETTER[/B] installed, prior to this installation of this mod!!
+[b]NOTICE:[/b] In order to support inline attachments in personal messages (PMs) you are [b]required[/b] to have the [url=https://custom.simplemachines.org/mods/index.php?mod=1974]PM Attachments[/url] mod [b]version 2.6 or later[/B] installed [b]prior[/b] to this installation of this mod!!
 
-[color=blue][b][size=12pt][u]New BBcodes[/u][/size][/b][/color]
-This mod supports 5 new bbcodes in order to position your attachments inline:
+[color=blue][b][size=12pt][u]New BBCodes[/u][/size][/b][/color]
+This mod supports 5 new BBCodes in order to position your attachments inline:
 o [b]attachment[/b] => Show full expanded picture
 o [b]attach[/b] => Show thumbnail, expandable to full picture
 o [b]attachthumb[/b] => Show thumbnail ONLY, not expandable
 o [b]attachmini[/b] => Show thumbnail, expandable to full picture
 o [b]attachurl[/b] => Shows attachment size, iamge dimensions, and download count; no picture
 
-[color=blue][b][size=12pt][u]BBcodes Parameters[/u][/size][/b][/color]
+[color=blue][b][size=12pt][u]BBCodes Parameters[/u][/size][/b][/color]
 Each new BBCode accepts the following formats:
 [code=Version 1.x]
 [nobbc][attach=[/nobbc][b]{id}[/b]][/attach]
@@ -26,7 +26,7 @@ Each new BBCode accepts the following formats:
 [/code]
 In each case, [b]{id}[/b] is the attachment number relative to the topic, [b]{width}[/b] is the max desired width, [b]{height}[/b] is the max desired height, [b]{pixels}[/b] is the number of pixels surrounding the image, and [b]{float}[/b] can be either [b]left[/b], [b]right[/b], or [b]center[/b].  All text between the opening and closing attachment tags is discarded.
 
-[color=blue][b][size=12pt][u]Version 2.0+ BBcode Parameters[/u][/size][/b][/color]
+[color=blue][b][size=12pt][u]Version 2.0+ BBCode Parameters[/u][/size][/b][/color]
 Version 2.0+ introduced a new format that allows the following parameters:
 [code=Version 2.x]
 [nobbc][attachment[/nobbc] id=[b]{id}[/b] {parameter}={value}][/attachment]
@@ -50,8 +50,8 @@ Allowed parameters:
 [/table]
 In each case, [b]{id}[/b] is the attachment number relative to the topic, [b]{width}[/b] is the max desired width, [b]{height}[/b] is the max desired height, [b]{pixels}[/b] is the number of pixels surrounding the image, and [b]{float}[/b] can be either [b]left[/b], [b]right[/b], or [b]center[/b].  All text between the opening and closing attachment tags is discarded.
 
-[color=blue][b][size=12pt][u]Version 3.0+ BBcode Format[/u][/size][/b][/color]
-[b]Version 3.0[/b] makes further changes and allows the use of the inline attachments bbcodes [b]WITHOUT[/b] closing brackets, as well as using attachments from another post!
+[color=blue][b][size=12pt][u]Version 3.0+ BBCode Format[/u][/size][/b][/color]
+[b]Version 3.0[/b] makes further changes and allows the use of the inline attachments BBCodes [b]WITHOUT[/b] closing brackets, as well as using attachments from another post!
 
 [b]Version 3.11[/b] makes further changes and allows the use of closed tags, like [b][nobbc][attach][/nobbc][/b].  This new form is autonumbered!  Note that the [b][nobbc][attach][/nobbc][/b] tag is processed first, then [b][nobbc][attachment][/nobbc][/b], then [b][nobbc][attachmini][/nobbc][/b], then [b][nobbc][attachthumb][/nobbc][/b], then [b][nobbc][attachurl][/nobbc][/b].
 
@@ -59,15 +59,15 @@ In each case, [b]{id}[/b] is the attachment number relative to the topic, [b]{wi
 o Error Text strings are shown for invalid/missing/deleted attachments.
 o Inline attachment processes takes place in the [b]parse_bbc[/b] function, which means any parsing requests can benefit from this mod!
 o Text string is shown as alternative in code
-o Adds [Insert Attachment x] next to each attachment/upload box to insert the bbcode.
+o Adds [Insert Attachment x] next to each attachment/upload box to insert the BBCode.
 o Attachments used by the inline attachments mod can be omitted from the attachment display at the bottom of the post
 o Reloads the attachments for Ajax Editing.
-o Removing an attachment removes the attachment bbcode for that attachment & changes remaining attachment tags to ensure proper post appearance.
+o Removing an attachment removes the attachment BBCode for that attachment & changes remaining attachment tags to ensure proper post appearance.
 o Text between inline attachment brackets are removed (as of version 3.0).
 o Automatic modification of boilerplates that use the ILA tags within them when changing "1-based" numbering option.
 
 [color=blue][b][size=12pt][u]Admin Settings[/u][/size][/b][/color]
-The bbcode may be disabled by going to [b][i]Admin[/i] -> [i]Forums[/i] -> [i]Posts and Topics[/i] -> [i]Bulletin Board Code[/i][/b] and unchecking the [b]attachment[/b] bbcode.
+The BBCode may be disabled by going to [b][i]Admin[/i] -> [i]Forums[/i] -> [i]Posts and Topics[/i] -> [i]Bulletin Board Code[/i][/b] and unchecking the [b]attachment[/b] BBCode.
 
 On the [b][i]Admin[/i] -> [i]Layout[/i] -> [i]Attachments and Avatars[/i] -> [i]Inline Attachments[/i][/b] page, there are several new options:
 o Remove attachment image under post after in-post use.
