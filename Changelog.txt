@@ -1,3 +1,8 @@
+v6.14 - September 18th, 2018
+o Fixed issue that prevented attachments being inserted inline (and which actually de-selected attachments) when a previously saved post that already had the maximum number of attachments allowed was being modified to insert the attachments inline.
+o Commented out check in ./Sources/Subs-InlineAttachmentsAdmin.php for later version of ILA as domain www.xptsp.com has expired and version check was causing 'Inline Attachment' menu option to hang/timeout.
+o Temporarily removed support for SMF 2.1 Beta 3 because mod wasn't working as expected (this will be reinstated when time permits).
+
 v6.13 - June 9th, 2018
 o Added message for PM preview to indicate attachment has not been uploaded yet.
 o Updated installation code for SMF 2.0.x to enable this mod to be installed and/or uninstalled before and/or after the [url=https://custom.simplemachines.org/mods/index.php?mod=4087]Automatic Attachment Rotation (and Resize)[/url] mod without generating errors in Display.php.

@@ -47,19 +47,19 @@ function ILA_Admin_Settings($return_config = false)
 	}
 	
 	// Get latest version of the mod and display whether current mod is up-to-date:
-	$file = cache_get_data('ila_mod_version', 86400);
-	if (empty($file))
-	{
-		$file = @file_get_contents('http://www.xptsp.com/tools/mod_version.php?url=Post_and_PM_Inline_Attachments');
-		cache_put_data('ila_mod_version', time() . $file, 86400);
-	}
-	if (!empty($file) && preg_match('#Post_and_PM_Inline_Attachments_v(.+?)\.zip#i', $file, $version))
-	{
-		if (isset($modSettings['ila_version']) && $version[1] > $modSettings['ila_version'])
-			$context['settings_insert_above'] .= '<div class="information"><p class="alert">' . sprintf($txt['ila_new_version'], $version[1]) . '<p></div>';
-		else
-			$context['settings_insert_above'] .= '<div class="information"><p>' . $txt['ila_no_update'] . '</p></div>';
-	}
+	//$file = cache_get_data('ila_mod_version', 86400);
+	//if (empty($file))
+	//{
+		//$file = @file_get_contents('http://www.xptsp.com/tools/mod_version.php?url=Post_and_PM_Inline_Attachments');
+		//cache_put_data('ila_mod_version', time() . $file, 86400);
+	//}
+	//if (!empty($file) && preg_match('#Post_and_PM_Inline_Attachments_v(.+?)\.zip#i', $file, $version))
+	//{
+		//if (isset($modSettings['ila_version']) && $version[1] > $modSettings['ila_version'])
+			//$context['settings_insert_above'] .= '<div class="information"><p class="alert">' . sprintf($txt['ila_new_version'], $version[1]) . '<p></div>';
+		//else
+			//$context['settings_insert_above'] .= '<div class="information"><p>' . $txt['ila_no_update'] . '</p></div>';
+	//}
 
 	// Assemble the options available in this mod:
 	if (!isset($modSettings['ila_insert_tag']))
