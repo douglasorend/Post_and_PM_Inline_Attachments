@@ -20,10 +20,8 @@ function ILA_Load_Theme()
 	global $context, $modSettings;
 
 	// Set max width and height for inline attachments via CSS:
-	$width = !empty($modSettings['ila_max_width']) ? $modSettings['ila_max_width'] : '100%';
-	$width = (strpos($width, '%') === false ? $width . 'px' : $width);
-	$height = !empty($modSettings['ila_max_height']) ? $modSettings['ila_max_height'] : 'auto';
-	$height = (strpos($height, '%') === false ? $height . 'px' : $height);
+	$width = !empty($modSettings['ila_max_width']) ? $modSettings['ila_max_width'] . 'px' : '100%';
+	$height = !empty($modSettings['ila_max_height']) ? $modSettings['ila_max_height'] . 'px' : 'auto';
 	$context['html_headers'] .= '
 	<style>.ila_attach {width: auto; height: auto; max-width: ' . $width . '; max-height: ' . $height . ';}</style>';
 }
@@ -100,12 +98,10 @@ function ILA_Button(&$buttons)
 {
 	global $context, $settings;
 
-	return;
 	// Load everything we are going to need for the editor:
+	return;
 	loadTemplate('InlineAttachments');
 	$context['template_layers'][] = 'ILA_popup';
-	$context['html_headers'] .= '
-	<link rel="stylesheet" type="text/css" href="' . $settings['theme_url'] . '/css/ILA.css" />';
 
 	// Now add the button to the editor!
 	$buttons[0][] = array(
@@ -777,8 +773,6 @@ function ILA_Build_HTML(&$tag, &$id)
 	// IMPORTANT: Set the download counter variable correctly!
 	$download_count = ($tag['tag'] == 'attachurl' ? 4 : ($tag['tag'] == 'attachmini' ? 0 :
 		(isset($modSettings['ila_download_count']) ? $modSettings['ila_download_count'] : 0)));
-	if ($tag['tag'] == 'attachurl' && !empty($modSettings['ila_download_count']))
-		$download_count = in_array($modSettings['ila_download_count'], array(4,5,6)) ? $modSettings['ila_download_count'] : 4;
 
 	// Start assembling the transparency CSS style:
 	$style = min(100, max(0, (isset($modSettings['ila_transparent']) ? $modSettings['ila_transparent'] : 40)));
@@ -825,10 +819,7 @@ function ILA_Build_HTML(&$tag, &$id)
 		elseif (!empty($modSettings['ila_embed_txt_files']) && $ext == 'txt')
 		{
 			require_once($sourcedir . '/Subs-Package.php');
-			$html = fetch_web_data($url);
-			if (empty($modSettings['ila_disable_strip_html_in_txt']))
-				$html = strip_tags($html);
-			$html = parse_bbc($html);
+			$html = parse_bbc(fetch_web_data($url));
 		}
 		// If we are allowed to embed attached PDF files, then do so:
 		elseif (!empty($modSettings['ila_embed_pdf_files']) && $ext == 'pdf')
@@ -915,14 +906,9 @@ function ILA_Build_HTML(&$tag, &$id)
 		// Let's build the HTML code for the download count now....
 		$title = $attachment['name'];
 		$name = $title;
-		if ($attachment['is_image'])
-		{
-			$length = !empty($modSettings['ila_max_width']) && $dimensions['width'] < $modSettings['ila_max_width'] ? $dimensions['width'] : $modSettings['ila_max_width'];
-			$name = '<div style="width: ' . $length . 'px;">' . $name . '</div>';
-		}
 
 		$html = (!empty($html) ? $html . '<br/>' : '') .
-			'<span class="smalltext">' .
+			'<div class="smalltext" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: ' . (!empty($modSettings['ila_max_width']) ? ($dimensions['width'] < $modSettings['ila_max_width'] ? $dimensions['width'] : $modSettings['ila_max_width']) : $dimensions['width']) . 'px;">' .
 				'<img src="' . $settings['images_url'] . '/icons/clip.' . (!isset($txt['attach_times']) ? 'png' : 'gif') . '" align="middle" alt="*" border="0" /> ' .
 				'<a href="' . $attachment['href'] . '" title="' . $title . '">' . $name . '</a>' .				($download_count ? (
 					($download_count >= 5 ? '<br/>' : ' ') .
@@ -934,7 +920,7 @@ function ILA_Build_HTML(&$tag, &$id)
 					) : '') .
 					($download_count >= 2 ? ')' : '')
 				) : '') .
-			'</span>';
+			'</div>';
 	}
 
 	// Do we have something to float or put a margin around?

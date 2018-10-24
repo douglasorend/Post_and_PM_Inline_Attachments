@@ -8,7 +8,9 @@
 * This program is distributed in the hope that it is and will be useful, but      *
 * WITHOUT ANY WARRANTIES; without even any implied warranty of MERCHANTABILITY    *
 * or FITNESS FOR A PARTICULAR PURPOSE.                                            *
-**********************************************************************************/
+***********************************************************************************
+* Spanish translation by Rock Lee (https://www.bombercode.org) Copyright 2014-2018*
+***********************************************************************************/
 if (!defined('SMF')) 
 	die('Hacking attempt...');
 
@@ -18,8 +20,7 @@ $txt['ila_nopermission'] = ' [ No tienes permiso para ver el/los archivo(s) adju
 $txt['ila_invalid'] = ' [ Archivo adjunto Inválido ] ';
 $txt['ila_unapproved'] = ' [ Archivo adjunto que todavía no ha sido aprobado ] ';
 $txt['ila_not_uploaded'] = ' [ Archivo adjunto que aún no se ha subido ] ';
-$txt['ila_pdf1'] = 'Parece que no tiene Adobe Reader o compatibilidad con PDF en este navegador web :( !!!.';
+$txt['ila_pdf1'] = 'Parece que no tiene Adobe Reader o compatibilidad para PDF en este navegador web :( !!!.';
 $txt['ila_pdf2'] = 'Haga clic aquí para descargar el PDF.';
 $txt['ila_no_video'] = 'No hay capacidades de reproducción de vídeo, por favor descarga el vídeo a continuación.';
-
 ?>

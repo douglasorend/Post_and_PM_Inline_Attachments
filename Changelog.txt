@@ -1,3 +1,7 @@
+v6.8 - March 15th, 2018
+o Included updated [b]Subs-InlineAttachments.php[/b] file.
+o Updated Spanish Latin translation by [url=http://www.simplemachines.org/community/index.php?action=profile;u=322597]Rock Lee[/url].
+
 v6.7 - March 15th, 2018
 o [url=https://www.simplemachines.org/community/index.php?topic=525705.msg3962375#msg3962375]Per GL700Wing[/url]: Add space on either side of each new inline attachment tag.
 o [url=https://www.simplemachines.org/community/index.php?topic=525705.msg3964928#msg3964928]Per GL700Wing[/url]: Fixed buffer issue in [b]Sources/Subs-CustomView.php[/b].

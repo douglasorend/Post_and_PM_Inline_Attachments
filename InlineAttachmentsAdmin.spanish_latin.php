@@ -8,7 +8,9 @@
 * This program is distributed in the hope that it is and will be useful, but      *
 * WITHOUT ANY WARRANTIES; without even any implied warranty of MERCHANTABILITY    *
 * or FITNESS FOR A PARTICULAR PURPOSE.                                            *
-**********************************************************************************/
+***********************************************************************************
+* Spanish translation by Rock Lee (https://www.bombercode.org) Copyright 2014-2018*
+***********************************************************************************/
 if (!defined('SMF')) 
 	die('Hacking attempt...');
 
@@ -23,12 +25,12 @@ $txt['ila_completed_plural'] = '%d mensajes con datos adjuntos en l&iacute;nea, 
 
 $txt['ila_title'] = 'Correos y adjuntos PM en l&iacute;nea';
 $txt['ila_insert_tag'] = 'Tag a utilizar al insertar archivos adjuntos en l&iacute;nea:';
-$txt['ila_highslide'] = '¿Habilitar efectos deslizantes para datos adjuntos en l&iacute;nea? ';
+$txt['ila_highslide'] = '&iquest;Habilitar efectos deslizantes para datos adjuntos en l&iacute;nea? ';
 $txt['ila_one_based_numbering'] = 'En caso de que la primera uni&oacute;n debe ser numerada &quot;1&quot;?';
-//$txt['ila_one_based_numbering_ask'] = 'Do you want to adjust all inline attachment IDs so that they still work the same as before?  Press \"OK\" to do this upon saving.';
-//$txt['ila_enable_responsive'] = 'Enable responsive CSS for inline attachments?';
-$txt['ila_allow_quoted_images'] = '¿Permitir el citado imágenes de fijaci&oacute;n de otro(s) tema(s) y/o mensaje(s)?';
-$txt['ila_duplicate'] = '¿Eliminar imagen del adjunto puesto despu&eacute;s de su uso en un(os) tema(s) y/o mensaje(s)?';
+$txt['ila_one_based_numbering_ask'] = '&iquest;Desea ajustar todas las ID de adjuntos en l&iacute;nea para que sigan funcionando igual que antes? Presione &quot;OK&quot; para hacer esto al guardar.';
+$txt['ila_enable_responsive'] = '&iquest;Habilitar CSS adaptativo para archivos adjuntos en l&iacute;nea?';
+$txt['ila_allow_quoted_images'] = '&iquest;Permitir el citado im&aacute;genes de fijaci&oacute;n de otro(s) tema(s) y/o mensaje(s)?';
+$txt['ila_duplicate'] = '&iquest;Eliminar imagen del adjunto puesto despu&eacute;s de su uso en un(os) tema(s) y/o mensaje(s)?';
 $txt['ila_download_count'] = 'El enlace de descarga y ajuste del contador:';
 /* 0 */ $txt['ila_download_count_n'] = 'Deshabilitar';
 /* 1 */ $txt['ila_download_count_f'] = 'S&oacute;lo el nombre del archivo';
@@ -38,26 +40,26 @@ $txt['ila_download_count'] = 'El enlace de descarga y ajuste del contador:';
 /* 5 */ $txt['ila_download_count_fsdc2'] = 'Nombre de archivo, tama&ntilde;o, dimensiones y descripci&oacute;n (2 l&iacute;neas)';
 /* 6 */ $txt['ila_download_count_fsdc3'] = 'Nombre de archivo, tama&ntilde;o, dimensiones y descripci&oacute;n (3 l&iacute;neas)';
 /* 7 */ $txt['ila_download_count_fsd2'] = 'Nombre de archivo, tama&ntilde;o y dimensiones (2 l&iacute;neas)';
-$txt['ila_transparent'] = 'Las imágenes no aprobadas que se muestran transparentes: (%)<div class="smalltext">NOTA: Usar <strong>0</strong> para desactivar mostrar imágenes no aprobados</div>';
+$txt['ila_transparent'] = 'Las im&aacute;genes no aprobadas que se muestran transparentes: (%)<div class="smalltext">NOTA: Usar <strong>0</strong> para desactivar mostrar im&aacute;genes no aprobados</div>';
 
-$txt['ila_embed_video_files'] = '¿Incrustar formatos de v&iacute;deo compatibles en el tema/mensaje?';
+$txt['ila_embed_video_files'] = '&iquest;Incrustar formatos de v&iacute;deo compatibles en el tema/mensaje?';
 $txt['ila_video_default_width'] = 'Ancho predeterminado de v&iacute;deo cuando no se especifica el ancho:';
 $txt['ila_video_default_height'] = 'Altura por defecto de v&iacute;deo cuando no se especifica la altura:';
-$txt['ila_video_show_download_link'] = '¿Mostrar enlace de descarga de v&iacute;deos?';
+$txt['ila_video_show_download_link'] = '&iquest;Mostrar enlace de descarga de v&iacute;deos?';
 $txt['ila_video_html5'] = 'Compruebe para utilizar etiquetas de v&iacute;deo HTML5 para mostrar v&iacute;deo:';
 
-$txt['ila_embed_svg_files'] = '¿Insertar archivos SVG dentro del tema/mensaje?';
-$txt['ila_embed_pdf_files'] = '¿Incrustar archivos PDF en el tema/mensaje?';
-$txt['ila_embed_txt_files'] = '¿Incrustar archivos de texto como parte del mensaje?';
-//$txt['ila_disable_strip_html_in_txt'] = 'Keep HTML tags in TXT files?<div class="smalltext">NOTE: Allowing HTML can allow malicious code!</div>';
+$txt['ila_embed_svg_files'] = '&iquest;Insertar archivos SVG dentro del tema/mensaje?';
+$txt['ila_embed_pdf_files'] = '&iquest;Incrustar archivos PDF en el tema/mensaje?';
+$txt['ila_embed_txt_files'] = '&iquest;Incrustar archivos de texto como parte del mensaje?';
+$txt['ila_disable_strip_html_in_txt'] = '&iquest;Mantenga etiquetas HTML en archivos de texto?<div class="smalltext">NOTA: ¡Permitir HTML puede permitir c&oacute;digo malicioso!</div>';
 
 $txt['ila_attach_same_as_attachment'] = '&quot;adjuntar&quot; bbcode igual que &quot;adjunto archivo&quot;?';
-$txt['ila_turn_nosniff_off'] = '¿Vueltas &quot;nosniff&quot; para opci&oacute;n de apagado para IE8+?';
-$txt['ila_display_exif'] = '¿Ver la informaci&oacute;n EXIF debajo de la imagen?';
+$txt['ila_turn_nosniff_off'] = '&iquest;Vueltas &quot;nosniff&quot; para opci&oacute;n de apagado para IE8+?';
+$txt['ila_display_exif'] = '&iquest;Ver la informaci&oacute;n EXIF debajo de la imagen?';
 
-//$txt['ila_max_width'] = 'Restrict images to maximum width of:<div class="smalltext">NOTE: <strong>0</strong> = disabled</div>';
-//$txt['ila_max_height'] = 'Restrict images to maximum height of:<div class="smalltext">NOTE: <strong>0</strong> = disabled</div>';
-//$txt['ila_insert_format'] = 'Format to insert new attachment tags:';
+$txt['ila_max_width'] = 'Restringir im&aacute;genes al ancho m&aacute;ximo de:<div class="smalltext">NOTA: <strong>0</strong> = desactivado</div>';
+$txt['ila_max_height'] = 'Restringir im&aacute;genes a la altura m&aacute;xima de:<div class="smalltext">NOTA: <strong>0</strong> = desactivado</div>';
+$txt['ila_insert_format'] = 'Formato para insertar nuevas etiquetas de archivos adjuntos:';
 
 // Help language strings:
 $helptxt['ila_insert_tag'] = 'Esta opci&oacute;n le permite elegir qu&eacute; etiqueta tendra el adjuntos en l&iacute;nea para su uso con el&quot;Insertar Archivo Adjunto&quot; v&iacute;nculo despu&eacute;s de cada archivo adjunto cargado.<br /><br />
@@ -108,19 +110,19 @@ $helptxt['ila_download_count'] = 'Esta opci&oacute;n controla lo que se muestra 
 $helptxt['ila_transparent'] = 'Esta opci&oacute;n permite cambiar la transparencia de las im&aacute;genes son aprobados, como porcentaje de <strong>0</strong> a <strong>100</strong>. Al establecer este valor <strong>0</strong> desactivado esta opci&oacute;n. Los miembros que no pueden ver las im&aacute;genes no autorizadas no se ven afectados por esta opci&oacute;n. <br /> <br /> El valor por defecto es <strong>40</strong>,como en <strong>40%</strong>.';
 $helptxt['ila_embed_video_files'] = 'Cuando se activa, esta opci&oacute;n le permite incluir los siguientes archivos de v&iacute;deo en un puesto:
 	<blockquote class="bbc_standard_quote">
-		<strong>AVI</strong> - played using <strong><a href="http://www.divx.com">DivX</a></strong>\'s player.  Assumes the DivX codec is installed on the OS being browsed.<br />
-		<strong>WMV</strong> - played using Windows Media Player.<br />
-		<strong>MP4</strong> - played using HTML5 tags (when &quot;Video HTML5&quot; is checked), with fallback HTML provided by <a href="http://www.jwplayer.com">JWPlayer</a>\'s Flash player.<br />
-		<strong>WebM</strong> - played using HTML5 tags (when &quot;Video HTML5&quot; is checked), with fallback HTML provided by <a href="http://www.jwplayer.com">JWPlayer</a>\'s Flash player.<br />
-		<strong>OGV</strong> - played using HTML5 tags (when &quot;Video HTML5&quot; is checked), with no fallback HTML provided.<br />
+		<strong>AVI</strong> - Reproducir usando <strong><a href="http://www.divx.com">DivX</a></strong>\'s player. Asume que el c&oacute;dec DivX est&aacute; instalado en el sistema operativo desde el que se est&aacute; navegando.<br />
+		<strong>WMV</strong> - Reproducir usando Windows Media Player.<br />
+		<strong>MP4</strong> - Reproducir usando HTML5 tags (cuando &quot;Video HTML5&quot; est&aacute; chequeado), con HTML alternativo proporcionado por <a href="http://www.jwplayer.com">JWPlayer</a>\'s Flash player.<br />
+		<strong>WebM</strong> - Reproducir usando HTML5 tags (cuando &quot;Video HTML5&quot; est&aacute; chequeado), con HTML alternativo proporcionado por <a href="http://www.jwplayer.com">JWPlayer</a>\'s Flash player.<br />
+		<strong>OGV</strong> - Reproducir usando HTML5 tags (cuando &quot;Video HTML5&quot; est&aacute; chequeado), sin HTML alternativo proporcionado.<br />
 	</blockquote>';
 $helptxt['ila_video_default_width'] = 'Esta opci&oacute;n especifica el ancho de la pantalla por defecto de los datos adjuntos de v&iacute;deo en l&iacute;nea. Puede ser anulado por el uso de la <strong>anchura</strong> par&aacute;metros en el uso de la etiqueta adjuntos en l&iacute;nea, tales como:<code class="bbc_code">[Archivo Adjunto id=x width=640]</code><br/>El valor por defecto es <strong>640</strong>.';
 $helptxt['ila_video_default_height'] = 'Esta opci&oacute;n especifica la altura de la pantalla por defecto de los datos adjuntos de v&iacute;deo en l&iacute;nea. Puede ser anulado por el uso de la <strong>altura</strong> par&aacute;metros en el uso de la etiqueta adjuntos en l&iacute;nea, tales como:<code class="bbc_code">[Archivo Adjunto id=x height=640]</code><br/>El valor por defecto es <strong>400</strong>.';
 $helptxt['ila_video_show_download_link'] = 'Cuando se activa, esta opci&oacute;n proporciona un enlace de descarga para el usuario, de manera que si el v&iacute;deo no se reproduce en la p&aacute;gina web, el usuario puede descargar el video para poder reproducir de forma local.';
 $helptxt['ila_video_html5'] = 'Cuando est&aacute; activada, esta opci&oacute;n env&iacute;a las etiquetas HTML5 con el fin de intentar reproducir <strong>MP4</strong>, <strong>ogv</strong>, y <strong>WebM</strong> como formatos de archivo. Independientemente de este ajuste, se proporciona el uso de c&oacute;digo HTML de repliegue <a href="http://www.jwplayer.com">JWPlayer</a>\'s Flash player.<br /><br /><strong>RESTRICCIONES:</strong> Con el fin de reproducir archivos de v&iacute;deo con &eacute;xito utilizando HTML5 sin necesidad de utilizar el c&oacute;digo HTML de reserva, se requiere que el p&oacute;ster para cargar archivos de v&iacute;deo en todos los <strong> </ strong> 3 formatos. Si todos los formatos no se proporcionan y las etiquetas HTML de v&iacute;deo no se pueden reproducir el formato para el navegador, el c&oacute;digo HTML de retorno ser&aacute; utilizado para intentar reproducir el archivo de v&iacute;deo. Tenga en cuenta que el archivo de v&iacute;deo no puede residir en un <strong>localhost</strong>, <strong>127.0.0.1</strong>, o red interna (<strong>192.168.x.x</strong>) direcci&oacute;n IP.';
 $helptxt['ila_embed_svg_files'] = 'Cuando se activa, esta opci&oacute;n le permite incrustar im&aacute;genes SVG (Scalable Vector Graphics) en su puesto, como un regular <strong>JPG</strong>, <strong>GIF</strong>, o <strong>PNG</strong> adjuntos en l&iacute;nea. De lo contrario, adjuntos en SVG no se pueden mostrar con normalidad.<br /><br />El valor predeterminado es <strong>sin restricci&oacute;n</strong>.';
-$helptxt['ila_embed_txt_files'] = 'When checked, this option allows you to embed the contents of a TXT file into the post.<br /><br />Default is <strong>unchecked</strong>.';
-$helptxt['ila_embed_pdf_files'] = 'When checked, this option allows you to embed an attached PDF file into the post using the Google Docs service.  Note that Google Docs cannot pull the attachment from <strong>localhost</strong> and <strong>127.0.0.1</strong> addresses, nor unresolvable IP addresses (most notably network IPs behind a router, for example: <strong>192.168.1.1</strong>).<br /><br />Default is <strong>unchecked</strong>.';
+$helptxt['ila_embed_txt_files'] = 'Cuando est&aacute; marcada, esta opci&oacute;n le permite incrustar el contenido de un archivo TXT en la publicaci&oacute;n.<br /><br />El valor predeterminado es <strong>sin marcar</strong>.';
+$helptxt['ila_embed_pdf_files'] = 'Cuando est&aacute; marcada, esta opci&oacute;n le permite incrustar un archivo PDF adjunto en la publicaci&oacute;n usando el servicio Google Docs. Tenga en cuenta que Google Docs no puede extraer el archivo adjunto de <strong>localhost</strong> y <strong>127.0.0.1</strong> direcciones, ni direcciones IP no resueltas (m&aacute;s notablemente IPs de red detr&aacute;s de un enrutador, por ejemplo: <strong>192.168.1.1</strong>).<br /><br />predeterminado es <strong>sin marcar</strong>.';
 $helptxt['ila_turn_nosniff_off'] = 'Al activar esta opci&oacute;n puede ayudar a resolver cuestiones en las que el tipo MIME de un archivo adjunto no coincide con el tipo real de los datos adjuntos y los usuarios est&aacute;n utilizando IE8+.<br /><br />
 	<strong>What the &quot;nosniff&quot; option does in IE 8+:</strong>
 	<blockquote class="bbc_standard_quote">
@@ -136,6 +138,5 @@ $helptxt['ila_display_exif'] = 'Cuando se utiliza en combinaci&oacute;n con el <
 		EXIF es la abreviatura de archivo de imagen intercambiable, un formato que es un est&aacute;ndar para el almacenamiento de informaci&oacute;n de intercambio en la fotograf&iacute;a digital de archivos de im&aacute;genes utilizando la compresi&oacute;n JPEG. Casi todas las nuevas c&aacute;maras digitales utilizan la anotaci&oacute;n EXIF, el almacenamiento de informaci&oacute;n en la imagen, como la velocidad del obturador, la compensaci&oacute;n de exposici&oacute;n, el número F, lo que el sistema de medici&oacute;n se utiliz&oacute;, si un flash se utiliza, el número ISO, la fecha y la hora se tom&oacute; la imagen, blanco equilibrio, lentes auxiliares que se utilizaron y resoluci&oacute;n. Algunas im&aacute;genes pueden incluso almacenar la informaci&oacute;n del GPS para que pueda ver f&aacute;cilmente d&oacute;nde se tomaron las im&aacute;genes!
 	</blockquote>
 	Fuente: <a href="www.exifdata.com">EXIFdata.com</a>';
-//$helptxt['ila_enable_responsive'] = 'Checking this option dynamically resizes the images so that they stay inside the post area of the forum, regardless of the size of the window.  Not having this option checked and not having a specific width/height defined will result in images that spill over the post area and result in the need to use the scrollbars to view the entire image.';
-
+$helptxt['ila_enable_responsive'] = 'Al marcar esta opci&oacute;n, se redimensionan din&aacute;micamente las im&aacute;genes para que permanezcan dentro del &aacute;rea de publicaci&oacute;n del foro, independientemente del tama&ntilde;o de la ventana. Si no se marca esta opci&oacute;n y no se define un ancho / alto espec&iacute;fico, las im&aacute;genes se derramar&aacute;n sobre el &aacute;rea de publicaci&oacute;n y se traducir&aacute; en la necesidad de utilizar las barras de desplazamiento para ver toda la imagen.';
 ?>

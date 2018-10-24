@@ -92,9 +92,8 @@ function ILA_Admin_Settings($return_config = false)
 		array('callback', 'ila_hidden_video_end', 'type' => 'callback'),	// <== Finish hidden video options section
 		'',
 		array('check', 'ila_embed_svg_files'),
-		array('check', 'ila_embed_pdf_files'),
 		array('check', 'ila_embed_txt_files'),
-		array('check', 'ila_disable_strip_html_in_txt'),
+		array('check', 'ila_embed_pdf_files'),
 		'',
 		array('check', 'ila_turn_nosniff_off', (substr($forum_version, 0, 7) == 'SMF 2.0' ? 99 : 'disabled') => true),
 		array('check', 'ila_display_exif', (file_exists($sourcedir . '/exif.php') ? 99 : 'disabled') => true),
