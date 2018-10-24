@@ -1,3 +1,12 @@
+v6.7 - March 15th, 2018
+o [url=https://www.simplemachines.org/community/index.php?topic=525705.msg3962375#msg3962375]Per GL700Wing[/url]: Add space on either side of each new inline attachment tag.
+o [url=https://www.simplemachines.org/community/index.php?topic=525705.msg3964928#msg3964928]Per GL700Wing[/url]: Fixed buffer issue in [b]Sources/Subs-CustomView.php[/b].
+o Added CSS and code for a fix for truncating long filenames to picture width.
+o Removed obsolete [b]ILA.css[/b] file from the mod file list.
+o Removed obsolete popup language strings.
+o Added code to filter HTML tags from TXT files.
+o Added admin option to disable filtering HTML from TXT files.
+
 v6.6 - March 4th, 2018
 o Made changes to admin tag adjustment code for better Postgres compatibility.
 o Fixed an issue where text after inline attachment was a hyperlink.

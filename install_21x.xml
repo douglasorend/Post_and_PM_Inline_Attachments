@@ -3,7 +3,7 @@
 <modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
 <name>Post and PM Inline Attachments</name>
 <id>Dougiefresh:ILA</id>
-<version>6.6</version>
+<version>6.7</version>
 
 <!---------------------------------------------------------------------------->
 <!-- Source file edits														-->
@@ -250,7 +250,7 @@
 								<script type="text/javascript"><!-- // --><![CDATA[<]]><![CDATA[![CDATA[
 									function insertAttachment(id)
 									{
-										$(\'#', $context['post_box_name'], '\')..data(\'sceditor\').insertText(\'[' . $ila_tag . ']\');
+										$(\'#', $context['post_box_name'], '\')..data(\'sceditor\').insertText(\' [' . $ila_tag . '] \');
 									}
 								// ]]]]><![CDATA[></script>';
 

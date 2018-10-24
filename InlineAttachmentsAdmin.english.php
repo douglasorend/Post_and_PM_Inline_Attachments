@@ -36,17 +36,15 @@ $txt['ila_one_based_numbering_ask'] = 'Do you want to adjust all inline attachme
 $txt['ila_allow_quoted_images'] = 'Allow quoted attachment images from another post?';
 $txt['ila_duplicate'] = 'Remove attachment image under post after in-post use?';
 $txt['ila_download_count'] = 'Download link and counter setting:';
-$txt['ila_download_count_n'] = 'Disabled';
-$txt['ila_download_count_f'] = 'Filename only';
-$txt['ila_download_count_fs'] = 'Filename and Size';
-$txt['ila_download_count_fsd'] = 'Filename, Size and Dimensions';
-$txt['ila_download_count_fsdc'] = 'Filename, Size, Dimensions and Count';
-$txt['ila_download_count_fsdc2'] = 'Filename, Size, Dimensions and Count (2 Lines)';
-$txt['ila_download_count_fsdc3'] = 'Filename, Size, Dimensions and Count (3 Lines)';
+/* 0 */ $txt['ila_download_count_n'] = 'Disabled';
+/* 1 */ $txt['ila_download_count_f'] = 'Filename only';
+/* 2 */ $txt['ila_download_count_fs'] = 'Filename and Size';
+/* 3 */ $txt['ila_download_count_fsd'] = 'Filename, Size and Dimensions';
+/* 4 */ $txt['ila_download_count_fsdc'] = 'Filename, Size, Dimensions and Count';
+/* 5 */ $txt['ila_download_count_fsdc2'] = 'Filename, Size, Dimensions and Count (2 Lines)';
+/* 6 */ $txt['ila_download_count_fsdc3'] = 'Filename, Size, Dimensions and Count (3 Lines)';
+/* 7 */ $txt['ila_download_count_fsd2'] = 'Filename, Size and Dimensions (2 Lines)';
 $txt['ila_transparent'] = 'Unapproved images shown as transparent: (%)<div class="smalltext">NOTE: <strong>0</strong> disables showing unapproved images</div>';
-
-//$txt['ila_popup_help'] = 'Include link for ILA popup window parameters?';
-//$txt['ila_no_popup_on_new'] = 'Include popup for new posts/PMs?';
 
 $txt['ila_embed_video_files'] = 'Embed supported video formats within the post?';
 $txt['ila_video_default_width'] = 'Default width of video when width isn\'t specified:';
@@ -55,8 +53,9 @@ $txt['ila_video_show_download_link'] = 'Show download link for videos?';
 $txt['ila_video_html5'] = 'Check to use HTML5 video tags to show video:';
 
 $txt['ila_embed_svg_files'] = 'Embed SVG files within the post?';
-$txt['ila_embed_txt_files'] = 'Embed TXT files as part of the post?';
 $txt['ila_embed_pdf_files'] = 'Embed PDF files within the post?';
+$txt['ila_embed_txt_files'] = 'Embed TXT files as part of the post?';
+$txt['ila_disable_strip_html_in_txt'] = 'Keep HTML tags in TXT files?<div class="smalltext">NOTE: Allowing HTML can allow malicious code!</div>';
 
 $txt['ila_turn_nosniff_off'] = 'Turns &quot;nosniff&quot; option off for IE 8+?';
 $txt['ila_display_exif'] = 'Display EXIF information below image?';

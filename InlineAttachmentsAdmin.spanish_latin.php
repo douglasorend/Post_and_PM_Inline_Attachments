@@ -30,15 +30,15 @@ $txt['ila_one_based_numbering'] = 'En caso de que la primera uni&oacute;n debe s
 $txt['ila_allow_quoted_images'] = '¿Permitir el citado imágenes de fijaci&oacute;n de otro(s) tema(s) y/o mensaje(s)?';
 $txt['ila_duplicate'] = '¿Eliminar imagen del adjunto puesto despu&eacute;s de su uso en un(os) tema(s) y/o mensaje(s)?';
 $txt['ila_download_count'] = 'El enlace de descarga y ajuste del contador:';
-$txt['ila_download_count_n'] = 'Deshabilitar';
-$txt['ila_download_count_f'] = 'S&oacute;lo el nombre del archivo';
-$txt['ila_download_count_fs'] = 'Nombre del archivo y el tama&ntilde;o';
-$txt['ila_download_count_fsd'] = 'Nombre de archivo, tama&ntilde;o y dimensiones';
-$txt['ila_download_count_fsdc'] = 'Nombre de archivo, tama&ntilde;o, dimensiones y descripci&oacute;n';
-$txt['ila_download_count_fsdc2'] = 'Nombre de archivo, tama&ntilde;o, dimensiones y descripci&oacute;n (2 l&iacute;neas)';
-$txt['ila_download_count_fsdc3'] = 'Nombre de archivo, tama&ntilde;o, dimensiones y descripci&oacute;n (3 l&iacute;neas)';
+/* 0 */ $txt['ila_download_count_n'] = 'Deshabilitar';
+/* 1 */ $txt['ila_download_count_f'] = 'S&oacute;lo el nombre del archivo';
+/* 2 */ $txt['ila_download_count_fs'] = 'Nombre del archivo y el tama&ntilde;o';
+/* 3 */ $txt['ila_download_count_fsd'] = 'Nombre de archivo, tama&ntilde;o y dimensiones';
+/* 4 */ $txt['ila_download_count_fsdc'] = 'Nombre de archivo, tama&ntilde;o, dimensiones y descripci&oacute;n';
+/* 5 */ $txt['ila_download_count_fsdc2'] = 'Nombre de archivo, tama&ntilde;o, dimensiones y descripci&oacute;n (2 l&iacute;neas)';
+/* 6 */ $txt['ila_download_count_fsdc3'] = 'Nombre de archivo, tama&ntilde;o, dimensiones y descripci&oacute;n (3 l&iacute;neas)';
+/* 7 */ $txt['ila_download_count_fsd2'] = 'Nombre de archivo, tama&ntilde;o y dimensiones (2 l&iacute;neas)';
 $txt['ila_transparent'] = 'Las imágenes no aprobadas que se muestran transparentes: (%)<div class="smalltext">NOTA: Usar <strong>0</strong> para desactivar mostrar imágenes no aprobados</div>';
-//$txt['ila_popup_help'] = 'Include link for ILA popup window parameters?';
 
 $txt['ila_embed_video_files'] = '¿Incrustar formatos de v&iacute;deo compatibles en el tema/mensaje?';
 $txt['ila_video_default_width'] = 'Ancho predeterminado de v&iacute;deo cuando no se especifica el ancho:';
@@ -47,8 +47,9 @@ $txt['ila_video_show_download_link'] = '¿Mostrar enlace de descarga de v&iacute
 $txt['ila_video_html5'] = 'Compruebe para utilizar etiquetas de v&iacute;deo HTML5 para mostrar v&iacute;deo:';
 
 $txt['ila_embed_svg_files'] = '¿Insertar archivos SVG dentro del tema/mensaje?';
-$txt['ila_embed_txt_files'] = '¿Incrustar archivos de texto como parte del mensaje?';
 $txt['ila_embed_pdf_files'] = '¿Incrustar archivos PDF en el tema/mensaje?';
+$txt['ila_embed_txt_files'] = '¿Incrustar archivos de texto como parte del mensaje?';
+//$txt['ila_disable_strip_html_in_txt'] = 'Keep HTML tags in TXT files?<div class="smalltext">NOTE: Allowing HTML can allow malicious code!</div>';
 
 $txt['ila_attach_same_as_attachment'] = '&quot;adjuntar&quot; bbcode igual que &quot;adjunto archivo&quot;?';
 $txt['ila_turn_nosniff_off'] = '¿Vueltas &quot;nosniff&quot; para opci&oacute;n de apagado para IE8+?';
