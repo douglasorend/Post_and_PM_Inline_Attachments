@@ -1,3 +1,6 @@
+v6.10 - April 3rd, 2018
+o [url=https://www.simplemachines.org/community/index.php?topic=525705.msg3967320#msg3967320]Per GL700Wing's post[/url], modified [url=https://dragomano.ru/mods/custom-view-of-attachments]Custom Views of Attachments[/url] mod to match attachment viewing modifications.
+
 v6.9 - March 20th, 2018
 o Changed HTML download count building code, based on [url=https://www.simplemachines.org/community/index.php?topic=525705.msg3965711#msg3965711]GL700's post[/url].
 
