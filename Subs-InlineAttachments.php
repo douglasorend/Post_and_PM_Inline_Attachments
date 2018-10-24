@@ -19,11 +19,16 @@ function ILA_Load_Theme()
 {
 	global $context, $modSettings;
 
-	// Set max width and height for inline attachments via CSS:
-	$width = !empty($modSettings['ila_max_width']) ? $modSettings['ila_max_width'] . 'px' : '100%';
-	$height = !empty($modSettings['ila_max_height']) ? $modSettings['ila_max_height'] . 'px' : 'auto';
+	// Set default max width and height for inline attachments via CSS:
+	$width = !empty($modSettings['ila_max_width']) ? $modSettings['ila_max_width'] . (strpos($modSettings['ila_max_width'], '%') === false ? 'px' : '') : '100%';
+	$height = !empty($modSettings['ila_max_height']) ? $modSettings['ila_max_height'] . (strpos($modSettings['ila_max_height'], '%') === false ? 'px' : '') : 'auto';
 	$context['html_headers'] .= '
-	<style>.ila_attach {width: auto; height: auto; max-width: ' . $width . '; max-height: ' . $height . ';}</style>';
+	<style>
+		.ila_attach {width: auto; height: auto; max-width: ' . $width . '; max-height: ' . $height . ';}
+		.ila_span {display: block; padding-left: 1.2em; margin-top: -2.0em;}
+		.ila_link {display: block; margin-left: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+		.ila_img {float: left; margin-top: 0.5em;}
+	</style>';
 }
 
 function ILA_tags()
@@ -380,7 +385,7 @@ function ILA_Process_Quotes(&$message, $msg_id = 0)
 {
 	global $context, $modSettings;
 
-	$pattern = '#\[quote(?:.*?)?\](.+?)\[/quote\]#i' . ($context['utf8'] ? 'u' : '');
+	$pattern = "#<\s*?form\b[^>]*>(.*?)</form\b[^>]*>#s";
 	if (preg_match_all($pattern, $message, $quotes, PREG_PATTERN_ORDER))
 	{
 		$quotes = array_unique($quotes[0]);
@@ -904,46 +909,45 @@ function ILA_Build_HTML(&$tag, &$id)
 		$viewed = (!isset($txt['attach_times']) ? sprintf($txt['attach_viewed'], $attachment['downloads']) : $txt['attach_viewed'] . ' ' . $attachment['downloads'] . ' ' . $txt['attach_times']);
 
 		// Let's build the HTML code for the download count now....
-		$title = $attachment['name'];
-		$name = $title;
-
 		$html = (!empty($html) ? $html . '<br/>' : '') .
-			'<div class="smalltext" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: ' . (!empty($modSettings['ila_max_width']) ? ($dimensions['width'] < $modSettings['ila_max_width'] ? $dimensions['width'] : $modSettings['ila_max_width']) : $dimensions['width']) . 'px;">' .
-				'<img src="' . $settings['images_url'] . '/icons/clip.' . (!isset($txt['attach_times']) ? 'png' : 'gif') . '" align="middle" alt="*" border="0" /> ' .
-				'<a href="' . $attachment['href'] . '" title="' . $title . '">' . $name . '</a>' .				($download_count ? (
-					($download_count >= 5 ? '<br/>' : ' ') .
+			'<span class="smalltext" style="display:block; ' . ($attachment['is_image'] ? 'max-' : '') . 'width:' . ($attachment['is_image'] && $dimensions['width'] > 0 ? (!empty($modSettings['ila_max_width']) && $modSettings['ila_max_width'] < $dimensions['width'] ? $modSettings['ila_max_width'] : $dimensions['width']) : 240) . 'px;">' .
+				'<img class="ila_img" src="' . $settings['images_url'] . '/icons/clip.' . (!isset($txt['attach_times']) ? 'png' : 'gif') . '" align="middle" alt="*" /> ' .
+				'<a class="ila_link" href="' . $attachment['href'] . '" title="' . $attachment['name'] . '">' . $attachment['name'] . '</a>' .
+				($download_count ? (
+					($download_count >= 5 ? '</span><br/><span class="smalltext ila_span">' : ' ') .
 					($download_count >= 2 ? '(' . $attachment['size'] : '') .
 					($download_count >= 3 && $attachment['is_image'] && !empty($dimensions['width']) ? ', ' . $dimensions['width'] . 'x' . $dimensions['height'] : '') .
 					($download_count >= 4 && $download_count <= 6 ? (
-						($download_count == 6 ? ')<br/>(' : ' - ') .
-						($attachment['is_image'] ? $viewed : ' - ' . $downloaded)
+						($download_count == 6 ? ')</span><br/><span class="smalltext ila_span">(' : ' - ') .
+						($attachment['is_image'] ? $viewed : $downloaded)
 					) : '') .
 					($download_count >= 2 ? ')' : '')
 				) : '') .
-			'</div>';
+			'</span>';
 	}
 
 	// Do we have something to float or put a margin around?
 	if (!empty($html))
 	{
 		// Process all the margin parameters:
-		$style = false;
+		$style = array();
 		if (isset($context['ila_params']['margin']))
-			$style .= ' margin: ' . $context['ila_params']['margin'] . 'px;';
+			$style[] =  'margin: '. $context['ila_params']['margin'] . 'px;';
 		if (isset($context['ila_params']['margin-left']))
-			$style .= ' margin-left: ' . $context['ila_params']['margin-left'] . 'px;';
+			$style[] =  'margin-left: '. $context['ila_params']['margin-left'] . 'px;';
 		if (isset($context['ila_params']['margin-right']))
-			$style .= ' margin-right: ' . $context['ila_params']['margin-right'] . 'px;';
+			$style[] =  'margin-right: '. $context['ila_params']['margin-right'] . 'px;';
 		if (isset($context['ila_params']['margin-top']))
-			$style .= ' margin-top: ' . $context['ila_params']['margin-top'] . 'px;';
+			$style[] =  'margin-top: '. $context['ila_params']['margin-top'] . 'px;';
 		if (isset($context['ila_params']['margin-bottom']))
-			$style .= ' margin-bottom: ' . $context['ila_params']['margin-bottom'] . 'px;';
+			$style[] =  'margin-bottom: '. $context['ila_params']['margin-bottom'] . 'px;';
 		if (isset($context['ila_params']['border-style']))
-			$style .= ' border-style: ' . $context['ila_params']['border-style'] . ';';
+			$style[] =  'border-style: '. $context['ila_params']['border-style'] . ';';
 		if (isset($context['ila_params']['border-width']))
-			$style .= ' border-width: ' . $context['ila_params']['border-width'] . 'px;';
+			$style[] =  'border-width: '. $context['ila_params']['border-width'] . 'px;';
 		if (isset($context['ila_params']['border-color']))
-			$style .= ' border-color: ' . $context['ila_params']['border-color'] . ';';
+			$style[] =  'border-color: '. $context['ila_params']['border-color'] . ';';
+		$style = implode(' ', $style);
 
 		// Add the margin and float params to the rest of the HTML:
 		if (isset($context['ila_params']['float']) && $context['ila_params']['float'] == 'center')
