@@ -1,6 +1,6 @@
 <?php
 /**********************************************************************************
-* InlineAttachmentsAdmin.spanish_latin-utf8.php - Latin Spanish language file
+* InlineAttachmentsAdmin.spanish_latin.php - Latin Spanish language file
 ***********************************************************************************
 * This mod is licensed under the 2-clause BSD License, which can be found here:
 *	http://opensource.org/licenses/BSD-2-Clause
