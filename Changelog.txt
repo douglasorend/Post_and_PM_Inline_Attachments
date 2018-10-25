@@ -1,3 +1,7 @@
+v6.15 - October 25th, 2018
+o No functionality change.
+o Updated documentation to point to new website.
+
 v6.14 - September 18th, 2018
 o Fixed issue that prevented attachments being inserted inline (and which actually de-selected attachments) when a previously saved post that already had the maximum number of attachments allowed was being modified to insert the attachments inline.
 o Commented out check in ./Sources/Subs-InlineAttachmentsAdmin.php for later version of ILA as domain www.xptsp.com has expired and version check was causing 'Inline Attachment' menu option to hang/timeout.
